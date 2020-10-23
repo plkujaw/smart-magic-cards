@@ -2,8 +2,8 @@ const suits = ['hearts', 'spades', 'diamonds', 'clubs'];
 const cardsWrapper = document.querySelector('.cards-wrapper');
 const btnWrapper = document.querySelector('.btn-wrapper'); /* eslint-disable-line */
 const selectedCardsWrapper = document.querySelector('.selected-cards'); /* eslint-disable-line */
+const cards = [];
 function createCards() {
-  const cards = [];
   // Create an array with objects containing the value and the suit of each card
   suits.forEach((suit) => [...Array(13)].forEach((_, i) => {
     const cardObject = {
@@ -12,7 +12,9 @@ function createCards() {
     };
     cards.push(cardObject);
   }));
+}
 
+function displayCards() {
   // For each dataObject, create a new card and append it to the DOM
   cards.forEach((card, i) => {
     const positionFromLeft = i * 24;
@@ -51,6 +53,14 @@ function addMagicButton() {
   magicBtn.classList.add('btn', 'btn-lg', 'btn-secondary');
   btnWrapper.append(magicBtn);
 }
+
+function shuffleCards() {
+  for (let i = cards.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [cards[i], cards[j]] = [cards[j], cards[i]];
+  }
+}
+
 // Function to clear out the initial button and create new buttons to play the game.
 function createButtons() {
   // Your Code
@@ -61,11 +71,26 @@ function createButtons() {
   addMagicButton();
 }
 
+btnWrapper.addEventListener('click', (event) => {
+  if (event.target.id === 'shuffle-btn') {
+    shuffleCards();
+    displayCards();
+  } else if (event.target.id === 'flip-btn') {
+    cardsWrapper.classList.toggle('hidden');
+    // [...cardsWrapper.children].forEach(card => {
+    //   card.classList.toggle('hidden');
+    //   console.log(card.classList);
+    // });
+    // console.log('cards flipped');
+  }
+});
+
 // Function to start the game by clearing the wrapper, creating
 // and appending the buttons and all the cards to the DOM
 function startGame() {
   createButtons();
   createCards();
+  displayCards();
 }
 
 document.getElementById('start-game').addEventListener('click', startGame);

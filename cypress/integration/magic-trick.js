@@ -7,28 +7,33 @@ describe('Play game', () => {
   it('Visits the game and play', () => {
     cy.visit('./index.html');
     cy.get('.navbar-brand img').should('have.exist');
-    cy.get('.navbar-brand').should('have.attr', 'href').and('eq', 'https://www.smartpension.co.uk');
+    cy.get('.navbar-brand')
+      .should('have.attr', 'href')
+      .and('eq', 'https://www.smartpension.co.uk');
     cy.get('h1').should('have.text', 'Become a software engineer at Smart');
-    cy.get('h3').should('have.text', 'Join Smart by simply performing a magic trick');
+    cy.get('h3').should(
+      'have.text',
+      'Join Smart by simply performing a magic trick',
+    );
     cy.get('#description').should('exist');
     cy.get('#start-game').should('have.text', "Let's get started").click();
     cy.get('[class*="hearts-"]').should('have.length', 13);
 
-    // cy.get('#start-game').should('have.not.exist');
+    cy.get('#start-game').should('have.not.exist');
 
-    // /* Each suit is rederted with 13 cards each (hearts, spades, diamonds, clubs) */
-    // suits.forEach((suit) => {
-    //   cy.get(`[class*="${suit}-"]`).should('have.length', 13);
-    // });
+    /* Each suit is rederted with 13 cards each (hearts, spades, diamonds, clubs) */
+    suits.forEach((suit) => {
+      cy.get(`[class*="${suit}-"]`).should('have.length', 13);
+    });
 
-    // /* The cards are sorted and grouped by suit (hearts, spades, diamonds, clubs) */
-    // cy.get('.card').then((cards) => {
-    //   const allCardClasses = [...cards].map((card) => card.classList[1]);
-    //   expect(allCardClasses).to.deep.equal(sortedCardsClasses);
-    // });
+    /* The cards are sorted and grouped by suit (hearts, spades, diamonds, clubs) */
+    cy.get('.card').then((cards) => {
+      const allCardClasses = [...cards].map((card) => card.classList[1]);
+      expect(allCardClasses).to.deep.equal(sortedCardsClasses);
+    });
 
-    // /* Click the `Suffle` button */
-    // cy.contains('Shuffle').click();
+    /* Click the `Suffle` button */
+    cy.contains('Shuffle').click();
 
     // /* The cards are not sorted anymore (shuffled) */
     // cy.get('.card').then((cards) => {

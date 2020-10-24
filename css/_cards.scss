@@ -3,6 +3,7 @@
   width: $card-width;
   position: absolute;
   background-size: 100%;
+  transition: all 2s linear;
 
   &.hearts-1 {
     background-image: url("../assets/cards/hearts-1.svg");
@@ -169,7 +170,7 @@
 .cards-wrapper {
   width: calc(100vw - 4rem);
   height: calc(#{$card-height} + 1rem);
-  overflow: scroll;
+  overflow: auto;
   margin: 0 2rem;
   border-radius: 10px;
 
@@ -184,6 +185,7 @@
 }
 
 .selected-card-wrapper {
+  transition: all 0.8s ease 0s;
   .selected-cards {
     height: calc(300px + 4px);
     width: calc(216px + 4px);

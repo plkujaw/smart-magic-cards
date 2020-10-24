@@ -7,6 +7,39 @@
   <link rel="stylesheet" href="css/index.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <script src="js/index.js" defer></script>
+  <script>
+  
+
+function displayMagicButton() {
+  magicBtn.innerHTML = 'Magic';
+  magicBtn.setAttribute('type', 'button');
+  magicBtn.setAttribute('id', 'magic-btn');
+  magicBtn.classList.add('btn', 'btn-lg', 'btn-secondary');
+  btnWrapper.append(magicBtn);
+}
+
+  function onDragStart(event) {
+  event.dataTransfer.setData('text/plain', event.target.id);
+  console.log('dragging');
+}
+
+function onDragOver(event) {
+  event.preventDefault();
+}
+
+function onDrop(event) {
+  displayMagicButton();
+  const id = event.dataTransfer.getData('text');
+  const selectedCard = document.getElementById(id);
+  selectedCard.style.left = '0px';
+  const dropzone = event.target;
+  console.log(id);
+  dropzone.appendChild(selectedCard);
+  event.dataTransfer.clearData();
+}
+
+
+</script>
   <title>Smart Magic Cards</title>
 </head>
 <body class="bg-primary">
@@ -33,7 +66,7 @@
     <div class="cards-wrapper mx-4 position-relative text-center">
     </div>
     <div class="selected-card-wrapper d-flex justify-content-center pt-4">
-      <div class="selected-cards"></div>
+      <div class="selected-cards" ondragover="onDragOver(event);" ondrop="onDrop(event);"></div>
     </div>
   </div>
 </body>

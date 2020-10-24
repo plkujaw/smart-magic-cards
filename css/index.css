@@ -5795,6 +5795,7 @@ h1 {
   width: 216px;
   position: absolute;
   background-size: 100%;
+  transition: all 2s linear;
 }
 .card.hearts-1 {
   background-image: url("../assets/cards/hearts-1.svg");
@@ -5959,7 +5960,7 @@ h1 {
 .cards-wrapper {
   width: calc(100vw - 4rem);
   height: calc(300px + 1rem);
-  overflow: scroll;
+  overflow: auto;
   margin: 0 2rem;
   border-radius: 10px;
 }
@@ -5970,6 +5971,9 @@ h1 {
   border-radius: 10px;
 }
 
+.selected-card-wrapper {
+  transition: all 0.8s ease 0s;
+}
 .selected-card-wrapper .selected-cards {
   height: calc(300px + 4px);
   width: calc(216px + 4px);

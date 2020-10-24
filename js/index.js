@@ -87,9 +87,7 @@ function createButtons() {
 }
 
 function doMagic() {
-  // console.log(cards);
   const selectedCard = [...selectedCardsWrapper.children][0];
-  console.log(selectedCard);
   const selectedCardValue = selectedCard.getAttribute('data-value');
   const remainedCards = [...cardsWrapper.children];
   const relatedCards = remainedCards.filter((card) => card.getAttribute('data-value') === selectedCardValue);
@@ -111,7 +109,6 @@ shuffleBtn.addEventListener('click', () => {
   shuffleCardsArray();
   displayCards();
   makeCardsDraggable();
-
   // selectCard();
 }, { once: true });
 

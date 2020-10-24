@@ -16,7 +16,6 @@ function createCards() {
     };
     cards.push(cardObject);
   }));
-  // console.log(cards);
 }
 
 function displayCards() {
@@ -61,7 +60,6 @@ function shuffleCardsArray() {
     const j = Math.floor(Math.random() * (i + 1));
     [cards[i], cards[j]] = [cards[j], cards[i]];
   }
-  // console.log(cards);
 }
 
 function toggleHideCards() {
@@ -90,43 +88,39 @@ function removeRelatedCards() {
   const selectedCard = cards[0];
   const selectedCardValue = selectedCard.getAttribute('data-value');
   const remainedCards = [...cardsWrapper.children];
-  // console.log(remainedCards);
   const relatedCards = remainedCards.filter((card) => card.getAttribute('data-value') === selectedCardValue);
-  // console.log(relatedCards);
   cards = remainedCards.filter((card) => !relatedCards.includes(card));
   relatedCards.forEach((card, i) => {
-    // console.log(card.style.left);
     const marginLeft = (i + 1) * 2;
     card.style.left = '0px';
     card.style.marginLeft = `${marginLeft}rem`;
     selectedCardsWrapper.style.width = '316px';
-    // console.log(card.style.left);
-    // console.log(relatedCards.length);
     selectedCardsWrapper.append(card);
   });
 }
 
 shuffleBtn.addEventListener('click', () => {
+  // remove unshuffled cards from the DOM
   while (cardsWrapper.lastElementChild) {
     cardsWrapper.removeChild(cardsWrapper.lastElementChild);
   }
   shuffleCardsArray();
   displayCards();
   selectCard();
-});
+}, { once: true });
 
 flipBtn.addEventListener('click', toggleHideCards);
 
 magicBtn.addEventListener('click', () => {
   removeRelatedCards();
 }, { once: true });
+
 // Function to start the game by clearing the wrapper, creating
 // and appending the buttons and all the cards to the DOM
 function startGame() {
   createButtons();
   createCards();
   displayCards();
-  // selectCard();
 }
 
 document.getElementById('start-game').addEventListener('click', startGame);

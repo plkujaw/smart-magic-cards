@@ -169,7 +169,7 @@
 .cards-wrapper {
   width: calc(100vw - 4rem);
   height: calc(#{$card-height} + 1rem);
-  overflow: scroll;
+  overflow: auto;
   margin: 0 2rem;
   border-radius: 10px;
 

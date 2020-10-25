@@ -84,7 +84,7 @@ function createButtons() {
   displayFlipButton();
 }
 
-function removeRelatedCards() {
+function doMagic() {
   const selectedCard = cards[0];
   const selectedCardValue = selectedCard.getAttribute('data-value');
   const remainedCards = [...cardsWrapper.children];
@@ -112,7 +112,7 @@ shuffleBtn.addEventListener('click', () => {
 flipBtn.addEventListener('click', toggleHideCards);
 
 magicBtn.addEventListener('click', () => {
-  removeRelatedCards();
+  doMagic();
 }, { once: true });
 
 // Function to start the game by clearing the wrapper, creating

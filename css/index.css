@@ -5874,45 +5874,6 @@ h1 {
 .card.diamonds-13 {
   background-image: url("../assets/cards/diamonds-13.svg");
 }
-.card.clubs-1 {
-  background-image: url("../assets/cards/clubs-1.svg");
-}
-.card.clubs-2 {
-  background-image: url("../assets/cards/clubs-2.svg");
-}
-.card.clubs-3 {
-  background-image: url("../assets/cards/clubs-3.svg");
-}
-.card.clubs-4 {
-  background-image: url("../assets/cards/clubs-4.svg");
-}
-.card.clubs-5 {
-  background-image: url("../assets/cards/clubs-5.svg");
-}
-.card.clubs-6 {
-  background-image: url("../assets/cards/clubs-6.svg");
-}
-.card.clubs-7 {
-  background-image: url("../assets/cards/clubs-7.svg");
-}
-.card.clubs-8 {
-  background-image: url("../assets/cards/clubs-8.svg");
-}
-.card.clubs-9 {
-  background-image: url("../assets/cards/clubs-9.svg");
-}
-.card.clubs-10 {
-  background-image: url("../assets/cards/clubs-10.svg");
-}
-.card.clubs-11 {
-  background-image: url("../assets/cards/clubs-11.svg");
-}
-.card.clubs-12 {
-  background-image: url("../assets/cards/clubs-12.svg");
-}
-.card.clubs-13 {
-  background-image: url("../assets/cards/clubs-13.svg");
-}
 .card.spades-1 {
   background-image: url("../assets/cards/spades-1.svg");
 }
@@ -5951,6 +5912,45 @@ h1 {
 }
 .card.spades-13 {
   background-image: url("../assets/cards/spades-13.svg");
+}
+.card.clubs-1 {
+  background-image: url("../assets/cards/clubs-1.svg");
+}
+.card.clubs-2 {
+  background-image: url("../assets/cards/clubs-2.svg");
+}
+.card.clubs-3 {
+  background-image: url("../assets/cards/clubs-3.svg");
+}
+.card.clubs-4 {
+  background-image: url("../assets/cards/clubs-4.svg");
+}
+.card.clubs-5 {
+  background-image: url("../assets/cards/clubs-5.svg");
+}
+.card.clubs-6 {
+  background-image: url("../assets/cards/clubs-6.svg");
+}
+.card.clubs-7 {
+  background-image: url("../assets/cards/clubs-7.svg");
+}
+.card.clubs-8 {
+  background-image: url("../assets/cards/clubs-8.svg");
+}
+.card.clubs-9 {
+  background-image: url("../assets/cards/clubs-9.svg");
+}
+.card.clubs-10 {
+  background-image: url("../assets/cards/clubs-10.svg");
+}
+.card.clubs-11 {
+  background-image: url("../assets/cards/clubs-11.svg");
+}
+.card.clubs-12 {
+  background-image: url("../assets/cards/clubs-12.svg");
+}
+.card.clubs-13 {
+  background-image: url("../assets/cards/clubs-13.svg");
 }
 .card:hover {
   z-index: 50;

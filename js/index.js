@@ -67,17 +67,6 @@ function toggleHideCards() {
   cardsWrapper.classList.toggle('hidden');
 }
 
-// function selectCard() {
-//   [...cardsWrapper.children].forEach((selectedCard) => {
-//     selectedCard.addEventListener('click', () => {
-//       cards = [selectedCard];
-//       selectedCard.style.left = '0px';
-//       selectedCardsWrapper.append(selectedCard);
-//       displayMagicButton();
-//     }, { once: true });
-//   });
-// }
-
 // Function to clear out the initial button and create new buttons to play the game.
 function createButtons() {
   const startBtn = document.getElementById('start-game');
@@ -98,6 +87,7 @@ function doMagic() {
     card.style.marginLeft = `${marginLeft}rem`;
     selectedCardsWrapper.style.width = '315px';
     selectedCardsWrapper.append(card);
+    
   });
 }
 
@@ -109,7 +99,6 @@ shuffleBtn.addEventListener('click', () => {
   shuffleCardsArray();
   displayCards();
   makeCardsDraggable();
-  // selectCard();
 }, { once: true });
 
 flipBtn.addEventListener('click', toggleHideCards);

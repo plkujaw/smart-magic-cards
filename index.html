@@ -18,6 +18,10 @@
 
     function onDragStart(event) {
       event.dataTransfer.setData('text/plain', event.target.id);
+      [...cards].forEach((card, i) => {
+        card.removeAttribute('draggable');
+        card.removeAttribute('ondragstart');
+      });
     }
 
     function onDragOver(event) {
@@ -32,6 +36,12 @@
       const selectedCardWrapper = event.target;
       selectedCardWrapper.append(selectedCard);
       event.dataTransfer.clearData();
+      // selectedCard = [...selectedCardsWrapper.children][0];
+      // const selectedCardValue = selectedCard.getAttribute('data-value');
+      // const remainedCards = [...cardsWrapper.children];
+      // const relatedCards = remainedCards.filter((card) => card.getAttribute('data-value') === selectedCardValue);
+      // cards = remainedCards.filter((card) => !relatedCards.includes(card));
+      // console.log([...cardsWrapper.children]);
     }
 </script>
   <title>Smart Magic Cards</title>

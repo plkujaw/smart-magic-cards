@@ -65,15 +65,15 @@ function shuffleCardsArray() {
 function toggleHideCards() {
   cardsWrapper.classList.toggle('hidden');
 }
+
 function selectCard() {
-  [...cardsWrapper.children].forEach((selectedCard) => {
-    selectedCard.addEventListener('click', () => {
-      cards = [selectedCard];
-      selectedCard.style.left = '0px';
-      selectedCardsWrapper.append(selectedCard);
-      displayMagicButton();
-    });
-  });
+  cardsWrapper.addEventListener('click', (event) => {
+    const selectedCard = event.target;
+    cards = [selectedCard];
+    selectedCard.style.left = '0px';
+    selectedCardsWrapper.append(selectedCard);
+    displayMagicButton();
+  }, { once: true });
 }
 
 // Function to clear out the initial button and create new buttons to play the game.

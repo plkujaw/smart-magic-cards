@@ -88,6 +88,7 @@ function moveRelatedCards(relatedCards) {
     card.style.marginLeft = `${marginLeft}rem`;
     selectedCardsWrapper.style.width = '315px';
     selectedCardsWrapper.append(card);
+    console.log([...cardsWrapper.children]);
   });
 }
 
@@ -96,7 +97,6 @@ function doMagic() {
   const selectedCardValue = selectedCard.getAttribute('data-value');
   const remainedCards = [...cardsWrapper.children];
   const relatedCards = remainedCards.filter((card) => card.getAttribute('data-value') === selectedCardValue);
-  [...cards].map((card) => !relatedCards.includes(card));
   moveRelatedCards(relatedCards);
 }
 

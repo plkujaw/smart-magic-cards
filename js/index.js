@@ -1,4 +1,4 @@
-const suits = ['hearts', 'spades', 'diamonds', 'clubs']
+const suits = ['hearts', 'spades', 'diamonds', 'clubs'];
 const cardsWrapper = document.querySelector('.cards-wrapper');
 const btnWrapper = document.querySelector('.btn-wrapper'); /* eslint-disable-line */
 const shuffleBtn = document.createElement('button');
@@ -80,8 +80,6 @@ function makeCardsDraggable() {
     card.setAttribute('ondragstart', 'onDragStart(event);');
   });
 }
-
-
 
 function moveRelatedCards(relatedCards) {
   relatedCards.forEach((card, i) => {

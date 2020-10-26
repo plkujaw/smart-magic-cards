@@ -8,7 +8,7 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <script src="js/index.js" defer></script>
   <script>
-    function displayMagicButton() {
+    function createMagicButton() {
       magicBtn.innerHTML = 'Magic';
       magicBtn.setAttribute('type', 'button');
       magicBtn.setAttribute('id', 'magic-btn');
@@ -29,11 +29,11 @@
     }
 
     function onDrop(event) {
-      displayMagicButton();
+      createMagicButton();
       const selectedCardID = event.dataTransfer.getData('text');
       const selectedCard = document.getElementById(selectedCardID);
-      selectedCard.style.left = '0px';
       const selectedCardsWrapper = event.target;
+      selectedCard.style.left = '0px';
       selectedCardsWrapper.append(selectedCard);
       event.dataTransfer.clearData();
     }

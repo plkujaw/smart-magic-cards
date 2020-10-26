@@ -53,6 +53,14 @@ function createFlipButton() {
   btnWrapper.append(flipBtn);
 }
 
+// Function to clear out the initial button and create new buttons to play the game.
+function displayButtons() {
+  const startBtn = document.getElementById('start-game');
+  startBtn.parentNode.removeChild(startBtn);
+  createShuffleButton();
+  createFlipButton();
+}
+
 function toggleHideCards() {
   cardsWrapper.classList.toggle('hidden');
 }
@@ -73,13 +81,7 @@ function makeCardsDraggable() {
   });
 }
 
-// Function to clear out the initial button and create new buttons to play the game.
-function createButtons() {
-  const startBtn = document.getElementById('start-game');
-  startBtn.parentNode.removeChild(startBtn);
-  createShuffleButton();
-  createFlipButton();
-}
+
 
 function moveRelatedCards(relatedCards) {
   relatedCards.forEach((card, i) => {
@@ -117,7 +119,7 @@ magicBtn.addEventListener('click', () => {
 // Function to start the game by clearing the wrapper, creating
 // and appending the buttons and all the cards to the DOM
 function startGame() {
-  createButtons();
+  displayButtons();
   createCards();
   displayCards();
 }

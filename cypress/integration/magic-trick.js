@@ -1,4 +1,4 @@
-const suits = ['hearts', 'diamonds', 'clubs', 'spades'];
+const suits = ['hearts', 'spades', 'diamonds', 'clubs'];
 const sortedCardsClasses = [];
 let selectedCard; /* eslint-disable-line */
 suits.forEach((suit) => [...Array(13)].forEach((_, i) => sortedCardsClasses.push(`${suit}-${i + 1}`)));

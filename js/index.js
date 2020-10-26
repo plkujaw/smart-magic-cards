@@ -96,7 +96,7 @@ function doMagic() {
   const selectedCardValue = selectedCard.getAttribute('data-value');
   const remainedCards = [...cardsWrapper.children];
   const relatedCards = remainedCards.filter((card) => card.getAttribute('data-value') === selectedCardValue);
-  cards.map((card) => !relatedCards.includes(card));
+  [...cards].map((card) => !relatedCards.includes(card));
   moveRelatedCards(relatedCards);
 }
 

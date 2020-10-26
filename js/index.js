@@ -5,7 +5,7 @@ const shuffleBtn = document.createElement('button');
 const flipBtn = document.createElement('button');
 const magicBtn = document.createElement('button');
 const selectedCardsWrapper = document.querySelector('.selected-cards'); /* eslint-disable-line */
-let cards = [];
+const cards = [];
 
 function createCards() {
   // Create an array with objects containing the value and the suit of each card
@@ -82,7 +82,7 @@ function shuffleCardsArray() {
 function selectCard() {
   cardsWrapper.addEventListener('click', (event) => {
     const selectedCard = event.target;
-    cards = [selectedCard];
+    // cards = [selectedCard];
     selectedCard.style.left = '0px';
     selectedCardsWrapper.append(selectedCard);
     createMagicButton();
@@ -102,11 +102,10 @@ function moveRelatedCards(relatedCards) {
 }
 
 function doMagic() {
-  const selectedCard = cards[0];
+  const selectedCard = [...selectedCardsWrapper.children][0];
   const selectedCardValue = selectedCard.getAttribute('data-value');
   const remainedCards = [...cardsWrapper.children];
   const relatedCards = remainedCards.filter((card) => card.getAttribute('data-value') === selectedCardValue);
-  cards.map((card) => !relatedCards.includes(card));
   moveRelatedCards(relatedCards);
 }
 

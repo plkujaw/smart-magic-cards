@@ -90,7 +90,6 @@ function selectCard() {
 }
 
 // Function to clear out the initial button and create new buttons to play the game.
-
 function moveRelatedCards(relatedCards) {
   relatedCards.forEach((card, i) => {
     const marginLeft = (i + 1) * 2;
@@ -111,7 +110,6 @@ function doMagic() {
 
 shuffleBtn.addEventListener('click', () => {
   // remove unshuffled cards from the DOM
-
   clearWrapper(cardsWrapper);
   shuffleCardsArray();
   displayCards();

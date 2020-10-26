@@ -33,15 +33,9 @@
       const selectedCardID = event.dataTransfer.getData('text');
       const selectedCard = document.getElementById(selectedCardID);
       selectedCard.style.left = '0px';
-      const selectedCardWrapper = event.target;
-      selectedCardWrapper.append(selectedCard);
+      const selectedCardsWrapper = event.target;
+      selectedCardsWrapper.append(selectedCard);
       event.dataTransfer.clearData();
-      // selectedCard = [...selectedCardsWrapper.children][0];
-      // const selectedCardValue = selectedCard.getAttribute('data-value');
-      // const remainedCards = [...cardsWrapper.children];
-      // const relatedCards = remainedCards.filter((card) => card.getAttribute('data-value') === selectedCardValue);
-      // cards = remainedCards.filter((card) => !relatedCards.includes(card));
-      // console.log([...cardsWrapper.children]);
     }
 </script>
   <title>Smart Magic Cards</title>

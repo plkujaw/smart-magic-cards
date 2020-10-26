@@ -87,7 +87,6 @@ function doMagic() {
     card.style.marginLeft = `${marginLeft}rem`;
     selectedCardsWrapper.style.width = '315px';
     selectedCardsWrapper.append(card);
-    
   });
 }
 

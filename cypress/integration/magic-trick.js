@@ -56,6 +56,16 @@ describe('Play game', () => {
     cy.get('.selected-card-wrapper .card').should('not.exist');
     cy.contains('Magic').should('not.exist');
 
+    /* NOTE ON FOLLOWING TESTS FAILING WITH THE DRAG AND DROP FUNCTIONALITY
+      The following tests fail because they suppose to test action (click) and
+      the state after this action which with the drag and drop implementation
+      doesn't occur (there is no function to handle click on the selected card as we select
+      the card by drag and dropping it).
+      The functionality and actual state (count of remained and chosen/related to chosen cards)
+      work fine (I have 'tested' it manually by console.log'ing the length of both arrays and cards values)
+      but I didn't manage to make the tests for drag and drop functionality work.
+    */
+
     /* Click on the first card */
     cy.get('.card').then((cards) => {
       [selectedCard] = cards;

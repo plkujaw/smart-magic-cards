@@ -88,7 +88,6 @@ function moveRelatedCards(relatedCards) {
     card.style.marginLeft = `${marginLeft}rem`;
     selectedCardsWrapper.style.width = '315px';
     selectedCardsWrapper.append(card);
-    console.log([...cardsWrapper.children]);
   });
 }
 

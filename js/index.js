@@ -105,12 +105,14 @@ shuffleBtn.addEventListener('click', () => {
   shuffleCardsArray();
   displayCards();
   makeCardsDraggable();
+  shuffleBtn.disabled = true;
 }, { once: true });
 
 flipBtn.addEventListener('click', toggleHideCards);
 
 magicBtn.addEventListener('click', () => {
   doMagic();
+  magicBtn.disabled = true;
 }, { once: true });
 
 // Function to start the game by clearing the wrapper, creating

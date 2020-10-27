@@ -4,6 +4,7 @@ const btnWrapper = document.querySelector('.btn-wrapper'); /* eslint-disable-lin
 const shuffleBtn = document.createElement('button');
 const flipBtn = document.createElement('button');
 const magicBtn = document.createElement('button');
+const playAgainBtn = document.createElement('button');
 const selectedCardsWrapper = document.querySelector('.selected-cards'); /* eslint-disable-line */
 let cards = [];
 
@@ -51,6 +52,15 @@ function createFlipButton() {
   flipBtn.classList.add('btn', 'btn-lg', 'btn-secondary');
   flipBtn.style.margin = '0 1rem 0 1rem';
   btnWrapper.append(flipBtn);
+}
+
+function createPlayAgainButton() {
+  playAgainBtn.innerHTML = 'Play again';
+  playAgainBtn.setAttribute('type', 'button');
+  playAgainBtn.setAttribute('id', 'flip-btn');
+  playAgainBtn.classList.add('btn', 'btn-lg', 'btn-secondary');
+  playAgainBtn.style.margin = '0 1rem 0 0';
+  btnWrapper.append(playAgainBtn);
 }
 
 // Function to clear out the initial button and create new buttons to play the game.

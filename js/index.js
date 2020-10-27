@@ -121,6 +121,7 @@ function doMagic() {
   moveRelatedCards(relatedCards);
   magicBtn.disabled = true;
   createPlayAgainButton();
+  cardsWrapper.classList.remove('hidden');
 }
 
 function addEventListeners() {
@@ -142,6 +143,7 @@ function playAgain() {
   magicBtn.disabled = true;
   if (magicBtn.disabled === true) {
     playAgainBtn.addEventListener('click', () => {
+      cardsWrapper.classList.remove('hidden');
       cards = [];
       clearWrapper(cardsWrapper);
       clearWrapper(selectedCardsWrapper);
@@ -154,7 +156,7 @@ function playAgain() {
       addEventListeners();
     });
   }
-}
+ }
 
 flipBtn.addEventListener('click', toggleHideCards);
 

@@ -4,8 +4,9 @@ const btnWrapper = document.querySelector('.btn-wrapper'); /* eslint-disable-lin
 const shuffleBtn = document.createElement('button');
 const flipBtn = document.createElement('button');
 const magicBtn = document.createElement('button');
+const playAgainBtn = document.createElement('button');
 const selectedCardsWrapper = document.querySelector('.selected-cards'); /* eslint-disable-line */
-const cards = [];
+let cards = [];
 
 function createCards() {
   // Create an array with objects containing the value and the suit of each card
@@ -41,6 +42,8 @@ function createShuffleButton() {
   shuffleBtn.setAttribute('type', 'button');
   shuffleBtn.setAttribute('id', 'shuffle-btn');
   shuffleBtn.classList.add('btn', 'btn-lg', 'btn-secondary');
+  shuffleBtn.style.margin = '0 1rem 0 0';
+  shuffleBtn.disabled = false;
   btnWrapper.append(shuffleBtn);
 }
 
@@ -49,7 +52,7 @@ function createFlipButton() {
   flipBtn.setAttribute('type', 'button');
   flipBtn.setAttribute('id', 'flip-btn');
   flipBtn.classList.add('btn', 'btn-lg', 'btn-secondary');
-  flipBtn.style.margin = '0 1rem 0 1rem';
+  flipBtn.style.margin = '0 1rem 0 0';
   btnWrapper.append(flipBtn);
 }
 
@@ -58,7 +61,18 @@ function createMagicButton() {
   magicBtn.setAttribute('type', 'button');
   magicBtn.setAttribute('id', 'magic-btn');
   magicBtn.classList.add('btn', 'btn-lg', 'btn-secondary');
+  magicBtn.style.margin = '0 1rem 0 0';
+  magicBtn.disabled = false;
   btnWrapper.append(magicBtn);
+}
+
+function createPlayAgainButton() {
+  playAgainBtn.innerHTML = 'Play again';
+  playAgainBtn.setAttribute('type', 'button');
+  playAgainBtn.setAttribute('id', 'flip-btn');
+  playAgainBtn.classList.add('btn', 'btn-lg', 'btn-secondary');
+  playAgainBtn.style.margin = '0 1rem 0 0';
+  btnWrapper.append(playAgainBtn);
 }
 
 function displayButtons() {
@@ -106,29 +120,53 @@ function doMagic() {
   const relatedCards = remainedCards.filter((card) => card.getAttribute('data-value') === selectedCardValue);
   moveRelatedCards(relatedCards);
   magicBtn.disabled = true;
+  createPlayAgainButton();
 }
 
-shuffleBtn.addEventListener('click', () => {
-  // remove unshuffled cards from the DOM
-  clearWrapper(cardsWrapper);
-  shuffleCardsArray();
-  displayCards();
-  selectCard();
-  shuffleBtn.disabled = true;
-}, { once: true });
+function addEventListeners() {
+  shuffleBtn.addEventListener('click', () => {
+    // remove unshuffled cards from the DOM
+    clearWrapper(cardsWrapper);
+    shuffleCardsArray();
+    displayCards();
+    selectCard();
+    shuffleBtn.disabled = true;
+  }, { once: true });
+
+  magicBtn.addEventListener('click', () => {
+    doMagic();
+  }, { once: true });
+}
+
+function playAgain() {
+  magicBtn.disabled = true;
+  if (magicBtn.disabled === true) {
+    playAgainBtn.addEventListener('click', () => {
+      cards = [];
+      clearWrapper(cardsWrapper);
+      clearWrapper(selectedCardsWrapper);
+      selectedCardsWrapper.style.width = '220px';
+      clearWrapper(btnWrapper);
+      createCards();
+      displayCards();
+      createFlipButton();
+      createShuffleButton();
+      addEventListeners();
+    });
+  }
+}
 
 flipBtn.addEventListener('click', toggleHideCards);
 
-magicBtn.addEventListener('click', () => {
-  doMagic();
-}, { once: true });
-
 // Function to start the game by clearing the wrapper, creating
 // and appending the buttons and all the cards to the DOM
+
 function startGame() {
   displayButtons();
   createCards();
   displayCards();
+  addEventListeners();
+  playAgain();
 }
 
 document.getElementById('start-game').addEventListener('click', startGame);

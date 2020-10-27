@@ -5987,9 +5987,7 @@ h1 {
 #magic-btn {
   cursor: url("/assets/wand.png"), auto;
 }
-
-#magic-btn:disabled,
-#magic-btn[disabled] {
+#magic-btn:disabled, #magic-btn[disabled] {
   cursor: auto;
 }
 

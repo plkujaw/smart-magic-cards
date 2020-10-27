@@ -129,6 +129,24 @@ function addEventListeners() {
   }, { once: true });
 }
 
+function playAgain() {
+  magicBtn.disabled = true;
+  if (magicBtn.disabled === true) {
+    playAgainBtn.addEventListener('click', () => {
+      cards = [];
+      clearWrapper(cardsWrapper);
+      clearWrapper(selectedCardsWrapper);
+      selectedCardsWrapper.style.width = '220px';
+      clearWrapper(btnWrapper);
+      createCards();
+      displayCards();
+      createFlipButton();
+      createShuffleButton();
+      addEventListeners();
+    });
+  }
+}
+
 flipBtn.addEventListener('click', toggleHideCards);
 
 // Function to start the game by clearing the wrapper, creating
@@ -138,6 +156,7 @@ function startGame() {
   createCards();
   displayCards();
   addEventListeners();
+  playAgain();
 }
 
 document.getElementById('start-game').addEventListener('click', startGame);

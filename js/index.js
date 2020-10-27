@@ -85,7 +85,7 @@ function selectCard() {
     selectedCard.style.left = '0px';
     selectedCardsWrapper.append(selectedCard);
     createMagicButton();
-    }, { once: true });
+  }, { once: true });
 }
 
 // Function to clear out the initial button and create new buttons to play the game.

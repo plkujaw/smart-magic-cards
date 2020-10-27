@@ -42,6 +42,7 @@ function createShuffleButton() {
   shuffleBtn.setAttribute('type', 'button');
   shuffleBtn.setAttribute('id', 'shuffle-btn');
   shuffleBtn.classList.add('btn', 'btn-lg', 'btn-secondary');
+  shuffleBtn.style.margin = '0 1rem 0 0';
   btnWrapper.append(shuffleBtn);
 }
 
@@ -50,7 +51,7 @@ function createFlipButton() {
   flipBtn.setAttribute('type', 'button');
   flipBtn.setAttribute('id', 'flip-btn');
   flipBtn.classList.add('btn', 'btn-lg', 'btn-secondary');
-  flipBtn.style.margin = '0 1rem 0 1rem';
+  flipBtn.style.margin = '0 1rem 0 0';
   btnWrapper.append(flipBtn);
 }
 
@@ -59,7 +60,7 @@ function createPlayAgainButton() {
   playAgainBtn.setAttribute('type', 'button');
   playAgainBtn.setAttribute('id', 'flip-btn');
   playAgainBtn.classList.add('btn', 'btn-lg', 'btn-secondary');
-  playAgainBtn.style.margin = '0 1rem 0 0';
+  playAgainBtn.style.margin = '0 0 0 1rem';
   btnWrapper.append(playAgainBtn);
 }
 
@@ -124,6 +125,7 @@ function addEventListeners() {
   magicBtn.addEventListener('click', () => {
     doMagic();
     magicBtn.disabled = true;
+    createPlayAgainButton();
   }, { once: true });
 }
 

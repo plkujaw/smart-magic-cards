@@ -13,7 +13,6 @@
       magicBtn.setAttribute('type', 'button');
       magicBtn.setAttribute('id', 'magic-btn');
       magicBtn.classList.add('btn', 'btn-lg', 'btn-secondary');
-      // magicBtn.style.margin = '0 1rem 0 0';
       magicBtn.disabled = false;
       btnWrapper.append(magicBtn);
     }
@@ -31,13 +30,13 @@
     }
 
     function onDrop(event) {
-      createMagicButton();
       const selectedCardID = event.dataTransfer.getData('text');
       const selectedCard = document.getElementById(selectedCardID);
       const selectedCardsWrapper = event.target;
       selectedCard.style.left = '0px';
       selectedCardsWrapper.append(selectedCard);
       event.dataTransfer.clearData();
+      createMagicButton();
     }
 </script>
   <title>Smart Magic Cards</title>

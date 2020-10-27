@@ -114,11 +114,11 @@ function doMagic() {
 function addEventListeners() {
   shuffleBtn.addEventListener('click', () => {
     // remove unshuffled cards from the DOM
+    shuffleBtn.disabled = true;
     clearWrapper(cardsWrapper);
     shuffleCardsArray();
     displayCards();
     makeCardsDraggable();
-    shuffleBtn.disabled = true;
   }, { once: true });
 
   magicBtn.addEventListener('click', () => {

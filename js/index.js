@@ -99,21 +99,25 @@ function doMagic() {
   moveRelatedCards(relatedCards);
 }
 
-shuffleBtn.addEventListener('click', () => {
-  // remove unshuffled cards from the DOM
-  clearWrapper(cardsWrapper);
-  shuffleCardsArray();
-  displayCards();
-  makeCardsDraggable();
-  shuffleBtn.disabled = true;
-}, { once: true });
+
+function addEventListeners() {
+  shuffleBtn.addEventListener('click', () => {
+    // remove unshuffled cards from the DOM
+    clearWrapper(cardsWrapper);
+    shuffleCardsArray();
+    displayCards();
+    makeCardsDraggable();
+    shuffleBtn.disabled = true;
+  }, { once: true });
+  
+  
+  magicBtn.addEventListener('click', () => {
+    doMagic();
+    magicBtn.disabled = true;
+  }, { once: true });
+}
 
 flipBtn.addEventListener('click', toggleHideCards);
-
-magicBtn.addEventListener('click', () => {
-  doMagic();
-  magicBtn.disabled = true;
-}, { once: true });
 
 // Function to start the game by clearing the wrapper, creating
 // and appending the buttons and all the cards to the DOM
@@ -121,6 +125,7 @@ function startGame() {
   displayButtons();
   createCards();
   displayCards();
+  addEventListeners();
 }
 
 document.getElementById('start-game').addEventListener('click', startGame);

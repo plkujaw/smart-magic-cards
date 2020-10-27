@@ -156,7 +156,7 @@ function playAgain() {
       addEventListeners();
     });
   }
- }
+}
 
 flipBtn.addEventListener('click', toggleHideCards);
 

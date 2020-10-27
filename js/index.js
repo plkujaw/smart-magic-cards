@@ -43,6 +43,7 @@ function createShuffleButton() {
   shuffleBtn.setAttribute('id', 'shuffle-btn');
   shuffleBtn.classList.add('btn', 'btn-lg', 'btn-secondary');
   shuffleBtn.style.margin = '0 1rem 0 0';
+  shuffleBtn.disabled = false;
   btnWrapper.append(shuffleBtn);
 }
 
@@ -110,7 +111,6 @@ function doMagic() {
   moveRelatedCards(relatedCards);
 }
 
-
 function addEventListeners() {
   shuffleBtn.addEventListener('click', () => {
     // remove unshuffled cards from the DOM
@@ -120,8 +120,7 @@ function addEventListeners() {
     makeCardsDraggable();
     shuffleBtn.disabled = true;
   }, { once: true });
-  
-  
+
   magicBtn.addEventListener('click', () => {
     doMagic();
     magicBtn.disabled = true;

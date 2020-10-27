@@ -90,7 +90,7 @@ describe('Play game', () => {
     /* Click on the `Play again` button */
     cy.contains('Play').click();
     cy.get('#start-game').should('have.not.exist');
-    
+
     /* The cards are sorted and grouped by suit (hearts, spades, diamonds, clubs) */
     cy.get('.card').then((cards) => {
       const allCardClasses = [...cards].map((card) => card.classList[1]);

@@ -69,8 +69,8 @@ function createPlayAgainButton() {
 function displayButtons() {
   const startBtn = document.getElementById('start-game');
   startBtn.parentNode.removeChild(startBtn);
-  createShuffleButton();
   createFlipButton();
+  createShuffleButton();
 }
 
 function toggleHideCards() {

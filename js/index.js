@@ -109,6 +109,7 @@ function doMagic() {
   const remainedCards = [...cardsWrapper.children];
   const relatedCards = remainedCards.filter((card) => card.getAttribute('data-value') === selectedCardValue);
   moveRelatedCards(relatedCards);
+  cardsWrapper.classList.remove('hidden');
 }
 
 function addEventListeners() {
@@ -132,6 +133,7 @@ function playAgain() {
   magicBtn.disabled = true;
   if (magicBtn.disabled === true) {
     playAgainBtn.addEventListener('click', () => {
+      cardsWrapper.classList.remove('hidden');
       cards = [];
       clearWrapper(cardsWrapper);
       clearWrapper(selectedCardsWrapper);

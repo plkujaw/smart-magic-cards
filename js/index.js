@@ -82,11 +82,10 @@ function shuffleCardsArray() {
 function selectCard() {
   cardsWrapper.addEventListener('click', (event) => {
     const selectedCard = event.target;
-    // cards = [selectedCard];
     selectedCard.style.left = '0px';
     selectedCardsWrapper.append(selectedCard);
     createMagicButton();
-  }, { once: true });
+    }, { once: true });
 }
 
 // Function to clear out the initial button and create new buttons to play the game.
@@ -106,6 +105,7 @@ function doMagic() {
   const remainedCards = [...cardsWrapper.children];
   const relatedCards = remainedCards.filter((card) => card.getAttribute('data-value') === selectedCardValue);
   moveRelatedCards(relatedCards);
+  magicBtn.disabled = true;
 }
 
 shuffleBtn.addEventListener('click', () => {
@@ -114,6 +114,7 @@ shuffleBtn.addEventListener('click', () => {
   shuffleCardsArray();
   displayCards();
   selectCard();
+  shuffleBtn.disabled = true;
 }, { once: true });
 
 flipBtn.addEventListener('click', toggleHideCards);
